@@ -2,6 +2,7 @@ import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import FeedStory from '../components/feed/FeedStory';
 import FeedStoryMe from '../components/feed/FeedStoryMe';
+import TopBar from '../components/TopBar';
 
 const HomeScreen = () => {
   const dataStory = [
@@ -25,19 +26,27 @@ const HomeScreen = () => {
       <FeedStory key={item.id} name={item.name} img={item.img} />
     );
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <FlatList horizontal data={dataStory} renderItem={renderItemStory} />
-    </SafeAreaView>
+    <>
+      <TopBar />
+      <SafeAreaView style={styles.wrapper}>
+        <FlatList
+          style={styles.flatListStyle}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={dataStory}
+          renderItem={renderItemStory}
+        />
+      </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    flex: 1,
-    height: 400,
     backgroundColor: 'white',
+  },
+  flatListStyle: {
+    height: 120,
   },
 });
 
