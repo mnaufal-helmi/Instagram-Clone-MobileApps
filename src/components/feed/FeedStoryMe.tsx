@@ -46,9 +46,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   imageStoryText: {
-    marginTop: 1,
+    fontFamily: 'SF-UI-Display',
+    lineHeight: 22,
+    marginTop: 6,
     color: 'black',
-    fontSize: 12,
+    fontSize: 14,
   },
   imageStoryIconPlus: {
     position: 'absolute',
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: 'white',
     borderRadius: 100,
-    bottom: 18,
+    bottom: 20,
     left: 50,
   },
 });

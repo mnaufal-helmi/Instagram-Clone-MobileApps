@@ -1,22 +1,29 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {NavigationTypes} from '../types/NavigationTypes';
 
 const TopBar = () => {
+  const {navigate} = useNavigation<StackNavigationProp<NavigationTypes>>();
   return (
-    <SafeAreaView>
-      <View style={styles.wrapper}>
-        <Text>Instagram</Text>
+    <View style={styles.wrapper}>
+      <Image source={require('../assets/icon/ic-IG-logo.png')} />
+      <TouchableOpacity
+        onPress={() => {
+          navigate('DirectMessage');
+        }}>
         <View style={styles.wrapperIconDM}>
           <Image
             style={styles.iconDM}
-            source={require('../assets/icon/IDm.png')}
+            source={require('../assets/icon/ic-dm-icon.png')}
           />
           <View style={styles.notifIconDM}>
             <Text style={styles.notifIconDMText}>8</Text>
           </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -32,13 +39,12 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   iconDM: {
-    transform: [{rotateX: '10deg'}, {rotateZ: '10deg'}],
     width: 35,
     height: 35,
   },
   notifIconDM: {
-    top: -3,
-    right: -4,
+    top: -4,
+    right: -6,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
