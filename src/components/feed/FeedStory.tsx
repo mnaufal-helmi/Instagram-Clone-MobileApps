@@ -50,9 +50,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   imageStoryText: {
+    fontFamily: 'SF-UI-Display',
+    lineHeight: 22,
     marginTop: 1,
     color: 'black',
-    fontSize: 12,
+    fontSize: 14,
   },
 });
 
